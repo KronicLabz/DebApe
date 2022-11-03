@@ -121,12 +121,6 @@ const Home: NextPage = () => {
                   <button
                     className={`${styles.quantityControlButton}`}
                     onClick={() => setQuantity(quantity + 1)}
-                    disabled={
-                      quantity >=
-                      parseInt(
-                        activeClaimCondition?.quantityLimitPerTransaction || "0"
-                      )
-                    }
                   >
                     +
                   </button>
