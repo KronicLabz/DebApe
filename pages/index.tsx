@@ -14,6 +14,8 @@ import styles from "../styles/Theme.module.css";
 // Put Your NFT Drop Contract address from the dashboard here
 const myNftDropContractAddress = "0x9EAb0609CD7d4796e33601cfE04835549F6864D9";
 
+const url = "https://www.motiondesigng.com";
+
 const Home: NextPage = () => {
   const { contract: nftDrop } = useContract(myNftDropContractAddress);
 
@@ -54,6 +56,25 @@ const Home: NextPage = () => {
 
   return (
     <div className={styles.container}>
+      <div
+        style={{
+          position: "fixed",
+          top: 15,
+          left: 55,
+          height: 125,
+          width: 20,
+        }}
+      >
+        <img
+          src="/logo.png"
+          alt="www.motiondesigng.com"
+          width={75}
+          height={75}
+          role="button"
+          onClick={() => window.open(url, "_blank")}
+          className={styles.buttonGapTop}
+        />
+      </div>
       <div className={styles.mintInfoContainer}>
         <div className={styles.infoSide}>
           {/* Title of your NFT Collection */}
@@ -135,26 +156,24 @@ const Home: NextPage = () => {
                     // If the function is successful, we can do something here.
                     onSuccess={(result) =>
                       alert(
-                        `Successfully minted ${result.length} NFT${
-                          result.length > 1 ? "s" : ""
+                        `Successfully minted ${result.length} NFT${result.length > 1 ? "s" : ""
                         }!`
                       )
                     }
                     // If the function fails, we can do something here.
                     onError={(error) => alert(error?.message)}
-                    accentColor="#f213a4"
+                    accentColor="rgb(255, 217, 0)"
                     colorMode="dark"
                   >
-                    {`Mint${quantity > 1 ? ` ${quantity}` : ""}${
-                      activeClaimCondition?.price.eq(0)
+                    {`Mint${quantity > 1 ? ` ${quantity}` : ""}${activeClaimCondition?.price.eq(0)
                         ? " (Free)"
                         : activeClaimCondition?.currencyMetadata.displayValue
-                        ? ` (${formatUnits(
+                          ? ` (${formatUnits(
                             priceToMint,
                             activeClaimCondition.currencyMetadata.decimals
                           )} ${activeClaimCondition?.currencyMetadata.symbol})`
-                        : ""
-                    }`}
+                          : ""
+                      }`}
                   </Web3Button>
                 </div>
               </>
@@ -163,12 +182,7 @@ const Home: NextPage = () => {
         </div>
       </div>
       {/* Powered by thirdweb */}{" "}
-      <img
-        src="/logo.png"
-        alt="thirdweb Logo"
-        width={135}
-        className={styles.buttonGapTop}
-      />
+
     </div>
   );
 };
