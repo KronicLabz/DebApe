@@ -8,12 +8,16 @@
 }
 
 .container {
-  margin-top: 96px;
+  margin-top: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100vw;
+}
+
+.header {
+  transform: translate(120%);
 }
 
 .previewImage {
@@ -31,9 +35,11 @@
   background-image: url("../public/nft.gif");
   background-size: cover;
   justify-content: center;
-  width: 100%;
+  margin-top: 5%;
+  margin-bottom: 1%;
+  width: 65%;
   padding: 0 24px;
-  min-height: 720px;
+  min-height: 680px;
   max-width: 95vw;
   gap: 2%;
   border: 1px solid var(--border-color);
@@ -109,6 +115,9 @@
   border-style: none;
 }
 
+.web3Button {
+  background-color: rgb(255, 217, 0);
+}
 .mainButton:hover {
   opacity: 0.8;
 }
